@@ -9,7 +9,7 @@ interface FavouritesProps {
 }
 
 const Favourites: React.FC<FavouritesProps> = ({ favourites, onAdd, onRemove }) => {
-  const [newFavourite, setNewFavourite] = useState<FavouritesType>({ name: "", link: "" })
+  const [newFavourite, setNewFavourite] = useState<FavouritesType>({ name: "", link: "https://" })
 
   const handleAdd = () => {
     if (!newFavourite.name || !newFavourite.link) {
@@ -17,7 +17,7 @@ const Favourites: React.FC<FavouritesProps> = ({ favourites, onAdd, onRemove }) 
       return
     }
     onAdd(newFavourite)
-    setNewFavourite({ name: "", link: "" })
+    setNewFavourite({ name: "", link: "https://" })
   }
 
   return (
@@ -37,7 +37,7 @@ const Favourites: React.FC<FavouritesProps> = ({ favourites, onAdd, onRemove }) 
           </li>
         ))}
       </ul>
-      {favourites.length < 6 && (
+      {favourites.length < 4 && (
         <div>
             <div className="flex justify-center items-center w-full p-2 border-2 border-[#151013] ">
                 <BsArrow90DegRight size={16} className="ml-2"/>
